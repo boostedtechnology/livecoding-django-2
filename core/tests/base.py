@@ -73,7 +73,7 @@ class PetTests(TestCase):
         owner = Owner.objects.create(
             first_name="John", last_name="Marner", province="AB"
         )
-        pet = Pet.objects.create(name="Rex", species=Species.OTHER, age=7, owner=owner)
+        pet = Pet.objects.create(name="Rex", species=Species.BIRD, age=7, owner=owner)
 
         # Act
         response = self.client.get(reverse("pet-list-create"))
@@ -90,14 +90,14 @@ class PetTests(TestCase):
         # Act
         response = self.client.post(
             reverse("pet-list-create"),
-            {"name": "Rex", "species": Species.OTHER, "age": 7, "owner": owner.id},
+            {"name": "Rex", "species": Species.BIRD, "age": 7, "owner": owner.id},
         )
 
         # Assert
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(
             Pet.objects.filter(
-                name="Rex", species=Species.OTHER, age=7, owner=owner
+                name="Rex", species=Species.BIRD, age=7, owner=owner
             ).count(),
             1,
         )
@@ -106,7 +106,7 @@ class PetTests(TestCase):
         # Act
         response = self.client.post(
             reverse("pet-list-create"),
-            {"name": "Rex", "species": Species.OTHER, "age": 7},
+            {"name": "Rex", "species": Species.BIRD, "age": 7},
         )
 
         # Assert
@@ -127,7 +127,7 @@ class PetTests(TestCase):
         owner = Owner.objects.create(
             first_name="John", last_name="Marner", province="AB"
         )
-        pet = Pet.objects.create(name="Rex", species=Species.OTHER, age=7, owner=owner)
+        pet = Pet.objects.create(name="Rex", species=Species.BIRD, age=7, owner=owner)
 
         # Act
         response = self.client.delete(

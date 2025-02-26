@@ -17,10 +17,6 @@ To confirm everything is working, run `python manage.py test core.tests.base` to
 
 The other test files are defined but should not work until you implement the tasks.
 
-## Task 1: Implement DELETE /accounts/:id/ endpoint
-
-We want to be able to delete an account by its ID. Add a new endpoint to the controller to delete an account by its ID.
-
 ## Task 1: Allow adding medical history to pets
 
 **Context**
@@ -72,6 +68,8 @@ The rules for underwriting are as follows:
 * Multiply the base cost by 1.5 for Ontario and 1.25 for British Columbia, based on the pet owner's province.
 
 * Cancer in the medical history means a pet is ineligible. A history of diabetes adds $8 to the cost of insurance and all other conditions add $5.
+
+Run `python manage.py test core.tests.task_2` to test if it works.
 
 
 ## Task 3: List all pets for a pet owner

@@ -39,7 +39,7 @@ class PetMedicalConditionDestroyView(generics.DestroyAPIView):
     def destroy(self, request, *args, **kwargs):
         pet_id = kwargs.get("pk")
         condition_id = kwargs.get("condition_pk")
-        pass
+        return Response(status=status.HTTP_501_NOT_IMPLEMENTED)
 
 
 class PetMedicalConditionListCreateView(generics.ListCreateAPIView):
@@ -65,7 +65,7 @@ class PetMedicalConditionListCreateView(generics.ListCreateAPIView):
     # Task 1
     # Create a medical condition for a pet
     def post(self, request, *args, **kwargs):
-        pass
+        return Response(status=status.HTTP_501_NOT_IMPLEMENTED)
 
 
 class PetEstimateView(generics.RetrieveAPIView):
@@ -78,4 +78,4 @@ class PetEstimateView(generics.RetrieveAPIView):
     # Task 2
     # Compute the cost of insuring a specific pet
     def post(self, request, *args, **kwargs):
-        pass
+        return Response(status=status.HTTP_501_NOT_IMPLEMENTED)

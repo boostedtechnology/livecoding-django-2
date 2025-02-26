@@ -29,17 +29,9 @@ class PetMedicalConditionDestroyView(generics.DestroyAPIView):
     # Delete a medical condition from a pet
     def destroy(self, request, *args, **kwargs):
         pet_id = kwargs.get('pk')
-        pet = Pet.objects.filter(id=pet_id).first()
-        if not pet:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
         condition_id = kwargs.get('condition_pk')
+        pass
 
-        try:
-            PetMedicalCondition.objects.filter(pet_id=pet_id, id=condition_id).delete();
-            return Response(status=status.HTTP_204_NO_CONTENT)
-        except PetMedicalCondition.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
 
 class PetMedicalConditionListCreateView(generics.ListCreateAPIView):
     queryset = PetMedicalCondition.objects.all()
@@ -64,15 +56,4 @@ class PetMedicalConditionListCreateView(generics.ListCreateAPIView):
     # Task 1
     # Create a medical condition for a pet
     def post(self, request, *args, **kwargs):
-        pet_id = kwargs.get('pk')
-        pet = Pet.objects.filter(id=pet_id).first()
-        if not pet:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-        serializer = self.get_serializer(data=request.data)
-        if not serializer.is_valid():
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-        PetMedicalCondition.objects.create(pet_id=pet_id, condition=serializer.validated_data.get('condition'))
-        return Response(status=status.HTTP_201_CREATED)
-
+        pass

@@ -1,5 +1,5 @@
 """
-URL configuration for petinsurance project.
+URL configuration for pawsitive_assurance project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -20,5 +20,5 @@ from rest_framework import permissions
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('petinsurance.petinsurance.urls')),
+    path('api/', include('core.urls')),
 ]

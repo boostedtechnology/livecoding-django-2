@@ -1,6 +1,10 @@
-# Pet Insurance 
+# Pawsitive Assurance 
 
-To get started on Mac, assuming Python 3.13.2 is already installed:
+### Setup
+
+This sample application was created on a Mac using Python 3.13.2; however, it should work with Python 3.9 and newer.
+
+To get started on Mac:
 
 ```bash
 python3 -m venv venv
@@ -9,15 +13,13 @@ pip install -r requirements.txt
 python manage.py migrate
 ``` 
 
-To confirm everything is working, run `python manage.py test core.tests.accounts` to make sure the base functionality it working.
+To confirm everything is working, run `python manage.py test core.tests.base` to make sure the base functionality it working.
 
 The other test files are defined but should not work until you implement the tasks.
 
 ## Task 1: Implement DELETE /accounts/:id/ endpoint
 
 We want to be able to delete an account by its ID. Add a new endpoint to the controller to delete an account by its ID.
-
-Run `python manage.py test petinsurance.petinsurance.tests.base` to test if it works.
 
 ## Task 1: Allow adding medical history to pets
 
@@ -33,7 +35,7 @@ Create two endpoints: one to create and one to delete medical conditions on a sp
 
 * DELETE `/pet/<id>/medical-conditions/<condition_id>`
 
-Run `python manage.py test petinsurance.petinsurance.tests.task_1` to test if it works.
+Run `python manage.py test core.tests.task_1` to test if it works.
 
 ## Task 2: Create an underwriting calculation
 

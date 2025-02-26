@@ -9,35 +9,105 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Owner',
+            name="Owner",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('first_name', models.TextField()),
-                ('last_name', models.TextField()),
-                ('province', models.CharField(choices=[('AB', 'Alberta'), ('BC', 'British Columbia'), ('MB', 'Manitoba'), ('NB', 'New Brunswick'), ('NL', 'Newfoundland And Labrador'), ('NS', 'Nova Scotia'), ('ON', 'Ontario'), ('PE', 'Prince Edward Island'), ('QC', 'Quebec'), ('SK', 'Saskatchewan'), ('YT', 'Yukon'), ('NT', 'Northwest Territories'), ('NU', 'Nunavut')], max_length=2)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("first_name", models.TextField()),
+                ("last_name", models.TextField()),
+                (
+                    "province",
+                    models.CharField(
+                        choices=[
+                            ("AB", "Alberta"),
+                            ("BC", "British Columbia"),
+                            ("MB", "Manitoba"),
+                            ("NB", "New Brunswick"),
+                            ("NL", "Newfoundland And Labrador"),
+                            ("NS", "Nova Scotia"),
+                            ("ON", "Ontario"),
+                            ("PE", "Prince Edward Island"),
+                            ("QC", "Quebec"),
+                            ("SK", "Saskatchewan"),
+                            ("YT", "Yukon"),
+                            ("NT", "Northwest Territories"),
+                            ("NU", "Nunavut"),
+                        ],
+                        max_length=2,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Pet',
+            name="Pet",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('name', models.TextField()),
-                ('species', models.CharField(choices=[('DOG', 'Dog'), ('CAT', 'Cat'), ('OTHER', 'Other')], max_length=6)),
-                ('age', models.IntegerField()),
-                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.owner')),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("name", models.TextField()),
+                (
+                    "species",
+                    models.CharField(
+                        choices=[("DOG", "Dog"), ("CAT", "Cat"), ("OTHER", "Other")],
+                        max_length=6,
+                    ),
+                ),
+                ("age", models.IntegerField()),
+                (
+                    "owner",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="core.owner"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='PetMedicalCondition',
+            name="PetMedicalCondition",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('condition', models.CharField(choices=[('CANCER', 'Cancer'), ('DIABETES', 'Diabetes'), ('HEART_DISEASE', 'Heart Disease'), ('OTHER', 'Other')], max_length=50)),
-                ('pet', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.pet')),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "condition",
+                    models.CharField(
+                        choices=[
+                            ("CANCER", "Cancer"),
+                            ("DIABETES", "Diabetes"),
+                            ("HEART_DISEASE", "Heart Disease"),
+                            ("OTHER", "Other"),
+                        ],
+                        max_length=50,
+                    ),
+                ),
+                (
+                    "pet",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="core.pet"
+                    ),
+                ),
             ],
         ),
     ]

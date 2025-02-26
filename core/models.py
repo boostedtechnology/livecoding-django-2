@@ -1,20 +1,22 @@
 from django.db import models
 import uuid
 
+
 class Province(models.TextChoices):
-    ALBERTA = 'AB'
-    BRITISH_COLUMBIA = 'BC'
-    MANITOBA = 'MB'
-    NEW_BRUNSWICK = 'NB'
-    NEWFOUNDLAND_AND_LABRADOR = 'NL'
-    NOVA_SCOTIA = 'NS'
-    ONTARIO = 'ON'
-    PRINCE_EDWARD_ISLAND = 'PE'
-    QUEBEC = 'QC'
-    SASKATCHEWAN = 'SK'
-    YUKON = 'YT'
-    NORTHWEST_TERRITORIES = 'NT'
-    NUNAVUT = 'NU'
+    ALBERTA = "AB"
+    BRITISH_COLUMBIA = "BC"
+    MANITOBA = "MB"
+    NEW_BRUNSWICK = "NB"
+    NEWFOUNDLAND_AND_LABRADOR = "NL"
+    NOVA_SCOTIA = "NS"
+    ONTARIO = "ON"
+    PRINCE_EDWARD_ISLAND = "PE"
+    QUEBEC = "QC"
+    SASKATCHEWAN = "SK"
+    YUKON = "YT"
+    NORTHWEST_TERRITORIES = "NT"
+    NUNAVUT = "NU"
+
 
 class Owner(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -27,9 +29,10 @@ class Owner(models.Model):
 
 
 class Species(models.TextChoices):
-    DOG = 'DOG'
-    CAT = 'CAT'
-    OTHER = 'OTHER'
+    DOG = "DOG"
+    CAT = "CAT"
+    OTHER = "OTHER"
+
 
 # Pet associated with an owner
 class Pet(models.Model):
@@ -44,10 +47,11 @@ class Pet(models.Model):
 
 
 class MedicalCondition(models.TextChoices):
-    CANCER = 'CANCER'
-    DIABETES = 'DIABETES'
-    HEART_DISEASE = 'HEART_DISEASE'
-    OTHER = 'OTHER'
+    CANCER = "CANCER"
+    DIABETES = "DIABETES"
+    HEART_DISEASE = "HEART_DISEASE"
+    OTHER = "OTHER"
+
 
 # Medical condition associated with a pet, stored in a separate table
 class PetMedicalCondition(models.Model):

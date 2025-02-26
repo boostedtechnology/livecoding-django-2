@@ -31,7 +31,8 @@ class Owner(models.Model):
 class Species(models.TextChoices):
     DOG = "DOG"
     CAT = "CAT"
-    OTHER = "OTHER"
+    BIRD = "BIRD"
+    FISH = "FISH"
 
 
 # Pet associated with an owner
